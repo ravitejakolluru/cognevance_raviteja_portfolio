@@ -7,9 +7,6 @@ A responsive, full-stack portfolio website for **K. Venkata Raviteja**, built wi
 **Portfolio Website:**  
 https://client-xi-one-94.vercel.app
 
-**Backend API:**  
-https://cognevance-raviteja-portfolio.onrender.com
-
 **API Health Check:**  
 https://cognevance-raviteja-portfolio.onrender.com/api/health
 
