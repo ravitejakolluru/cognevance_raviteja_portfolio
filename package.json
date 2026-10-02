@@ -1,0 +1,6 @@
+{
+  "name": "cognevance_raviteja_portfolio",
+  "private": true,
+  "scripts": {"install:all":"npm --prefix client install && npm --prefix server install","dev":"concurrently \"npm --prefix client run dev\" \"npm --prefix server run dev\"","build":"npm --prefix client run build","start":"npm --prefix server start"},
+  "devDependencies": {"concurrently":"^9.1.2"}
+}

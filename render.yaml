@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: raviteja-portfolio-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
