@@ -1,79 +1,96 @@
 # Responsive Portfolio Website
 
-A responsive, full-stack portfolio for **K. Venkata Raviteja**, built with React, Vite, Express, and MongoDB.
+A responsive, full-stack portfolio website for **K. Venkata Raviteja**, built with React, Vite, Express, and MongoDB.
 
-## Features
+## 🌐 Live Demo
 
-- Responsive home, about, skills, projects, and contact sections
-- Keyboard-accessible mobile navigation, reduced-motion support, and scroll-reveal animations
-- Contact form connected to an Express API, with server-side validation and MongoDB persistence
-- API rate limiting, Helmet security headers, and configurable CORS
-- Vercel and Render deployment configuration
+**Portfolio Website:**  
+https://client-xi-one-94.vercel.app
 
-## Tech stack
+**Backend API:**  
+https://cognevance-raviteja-portfolio.onrender.com
 
-- **Frontend:** React, Vite, CSS
-- **Backend:** Node.js, Express
-- **Database:** MongoDB / MongoDB Atlas
-- **Hosting:** Vercel (frontend), Render (API), MongoDB Atlas (database)
+**API Health Check:**  
+https://cognevance-raviteja-portfolio.onrender.com/api/health
 
-## Run locally
+The health endpoint confirms that the backend API is running and connected to MongoDB Atlas.
 
-Prerequisites: Node.js 20 or newer and a MongoDB connection string.
+---
 
-From the repository root:
+## ✨ Features
 
-```sh
-npm install
-npm run install:all
-```
+- Responsive portfolio website for desktop, tablet, and mobile
+- Home, About, Skills, Projects, and Contact sections
+- Responsive navigation with mobile menu
+- Keyboard-accessible navigation
+- Scroll-reveal animations
+- Reduced-motion support for accessibility
+- Full-stack contact form
+- Server-side contact form validation
+- Contact messages stored securely in MongoDB Atlas
+- API rate limiting
+- Helmet security headers
+- Configurable CORS
+- Production frontend deployment on Vercel
+- Production backend deployment on Render
+- MongoDB Atlas database integration
 
-Copy `server/.env.example` to `server/.env`, then set `MONGODB_URI` to your MongoDB connection string. Never commit the `.env` file.
+---
 
-```sh
-npm run dev
-```
+## 🛠️ Tech Stack
 
-- Frontend: http://localhost:5173
-- API health: http://localhost:5000/api/health
+### Frontend
+- React
+- Vite
+- CSS
+- JavaScript
 
-Without `MONGODB_URI`, the API starts in a degraded state and contact submissions return `503`; set up the database before testing the form end to end.
+### Backend
+- Node.js
+- Express.js
+- Mongoose
 
-See [database setup](./docs/DATABASE.md) and [project report](./docs/PROJECT_REPORT.md) for more information.
+### Database
+- MongoDB
+- MongoDB Atlas
 
-## API
+### Deployment
+- Vercel — Frontend
+- Render — Backend API
+- MongoDB Atlas — Database
 
-### `GET /api/health`
+---
 
-Returns API and database connectivity. Responds with `200` when MongoDB is connected and `503` otherwise.
+## 📁 Project Structure
 
-### `POST /api/contact`
-
-Stores a contact message. All fields are required; limits are 80 characters for `name`, 160 for `email` and `subject`, and 3,000 for `message`.
-
-```json
-{
-  "name": "Your Name",
-  "email": "you@example.com",
-  "subject": "Hello",
-  "message": "Your message"
-}
-```
-
-The API intentionally does not expose a public endpoint for reading stored messages.
-
-## Deployment
-
-1. Create a MongoDB Atlas database and user; configure network access for the deployed API.
-2. Deploy the repository's `server` directory to Render. Set `MONGODB_URI` and `CLIENT_URL` in the service environment. `CLIENT_URL` must be the deployed frontend origin (no trailing slash); multiple comma-separated origins are supported.
-3. Deploy the `client` directory to Vercel and set `VITE_API_URL` to the deployed API origin (no trailing slash).
-4. Redeploy both services after adding environment variables, then test the health endpoint and submit a test message.
-5. Add the resulting live URLs and public GitHub repository URL below once deployment and repository publication are complete.
-
-- **Live website:** Not deployed yet
-- **API health:** Not deployed yet
-- **GitHub repository:** Not published yet
-
-## Screenshots
-
-Desktop and mobile screenshots are included at `docs/screenshots/desktop.png` and `docs/screenshots/mobile.png`. They show the local frontend; a live deployment is still pending. See [screenshot instructions](./docs/screenshots/README.txt).
+```text
+cognevance_raviteja_portfolio/
+│
+├── client/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── vercel.json
+│
+├── server/
+│   ├── src/
+│   │   ├── index.js
+│   │   ├── models/
+│   │   │   └── Contact.js
+│   │   └── routes/
+│   │       └── contact.js
+│   ├── .env.example
+│   ├── package.json
+│   └── render.yaml
+│
+├── docs/
+│   ├── DATABASE.md
+│   ├── PROJECT_REPORT.md
+│   └── screenshots/
+│       ├── desktop.png
+│       ├── mobile.png
+│       └── README.txt
+│
+├── package.json
+├── README.md
+└── render.yaml
